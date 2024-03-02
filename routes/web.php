@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Levelcontroller;
 use App\Http\Controllers\Kategoricontroller;
+use App\Http\Controllers\Usercontroller;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +23,5 @@ Route::get('/', function () {
 Route::get('/level', [Levelcontroller::class, 'index']);
 
 Route::get('/kategori', [Kategoricontroller::class, 'index']);
+
+Route::get('/user', [Usercontroller::class, 'index']);
