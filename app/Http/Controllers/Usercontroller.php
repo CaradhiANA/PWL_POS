@@ -10,16 +10,20 @@ class UserController extends Controller
 {
     function index()
     {
-         $data = [
-            'level_id' => 2,
-             'username' => 'manajer-3',
-             'nama' => 'Manajer 3',
-             'password' => Hash::make('12345'),
-        ];
-        usermodel::create($data);
+        // $data = [
+         //   'level_id' => 2,
+        //     'username' => 'manajer-6',
+        //     'nama' => 'Manajer 6',
+         //    'password' => Hash::make('12345'),
+        //];
+        //usermodel::create($data);
 
+        $user = Usermodel::findOr(20, ['username', 'nama'], function(){
+        abort(404);
+        });
 
-        $user = Usermodel::all();
+        $user = Usermodel::firstWhere('level_id',1);
         return view('user', ['data' => $user]);
+
     }
 }
