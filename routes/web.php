@@ -31,3 +31,9 @@ Route::post('/user/tambah_simpan', [Usercontroller::class, 'tambah_simpan']);
 Route::get('/user/ubah/{id}', [Usercontroller::class, 'ubah']);
 Route::put('/user/ubah_simpan/{id}', [Usercontroller::class, 'ubah_simpan']);
 Route::get('/user/hapus/{id}', [Usercontroller::class, 'hapus']);
+
+Route::post('/kategori', [Kategoricontroller::class, 'store']);
+Route::get('/kategori/create', [Kategoricontroller::class, 'create']);
+Route::get('/kategori/{id}/edit', [KategoriController::class, 'edit']);
+Route::put('/kategori/{id}', [KategoriController::class, 'update']);
+Route::delete('/kategori/{id}', [KategoriController::class, 'destroy']);
