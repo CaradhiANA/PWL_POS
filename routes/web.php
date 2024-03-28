@@ -17,7 +17,7 @@ use App\Http\Controllers\Kategoricontroller;
 |
 */
 
-Route::get('/', function () {
+Route::get('/home', function () {
     return view('welcome');
 });
 

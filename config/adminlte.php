@@ -325,7 +325,7 @@ return [
         ['header' => 'POS Barang'],
         [
             'text' => 'profile',
-            'url' => 'admin/settings',
+            'url' => '/public',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
