@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Usercontroller;
 use App\Http\Controllers\Levelcontroller;
 use App\Http\Controllers\Kategoricontroller;
+use App\Http\Controllers\Welcomecontroller;
 
 
 /*
@@ -20,6 +21,8 @@ use App\Http\Controllers\Kategoricontroller;
 Route::get('/home', function () {
     return view('welcome');
 });
+
+Route::get('/', [Welcomecontroller::class, 'index']);
 
 Route::get('/level', [Levelcontroller::class, 'index']);
 
