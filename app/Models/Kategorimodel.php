@@ -19,6 +19,6 @@ class Kategorimodel extends Model
 
     public function barang(): HasMany
     {
-        return $this->HasMany(LevelModel::class, 'barang_id', 'barang_id');
+        return $this->hasMany(Barangmodel::class, 'kategori_id', 'kategori_id');
     }
 }

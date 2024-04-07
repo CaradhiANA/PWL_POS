@@ -22,15 +22,14 @@ class Usercontroller extends Controller
 
         $activeMenu = 'user';
 
-        $level= LevelModel::all();
+        $level= Levelmodel::all();
 
         return view('user.index', ['breadcrumb' => $breadcrumb, 'page' => $page, 'level' => $level, 'activeMenu' => $activeMenu]);
     }
 
     public function list(Request $request)
     {
-        $users = Usermodel::select('user_id', 'username', 'nama', 'level_id')
-            ->with('level');
+        $users = Usermodel::select('user_id', 'username', 'nama', 'level_id')->with('level');
 
         if ($request->level_id) {
             $users->where('level_id', $request->level_id);
@@ -44,7 +43,7 @@ class Usercontroller extends Controller
                 $btn .= '<form class="d-inline-block" method="POST" action="' .
                     url('/user/' . $user->user_id) . '">'
                     . csrf_field() . method_field('DELETE') .
-                    '<button type="submit" class="btn btn-danger btn-sm" onclick="return confirm(\'Apakah Anda yakit menghapus data ini?\');">Hapus</button></form>';
+                    '<button type="submit" class="btn btn-danger btn-sm" onclick="return confirm(\'Apakah Anda yakin menghapus data ini?\');">Hapus</button></form>';
                 return $btn;
             })
             ->rawColumns(['aksi'])
@@ -108,7 +107,7 @@ class Usercontroller extends Controller
     public function edit($id)
     {
         $user = UserModel::find($id);
-        $level = LevelModel::all();
+        $level = Levelmodel::all();
 
         $breadcrumb = (object) [
             'title' => 'Edit User',
