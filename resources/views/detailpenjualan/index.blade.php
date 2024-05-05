@@ -32,15 +32,6 @@
                         </select>
                         <small class="form-text text-muted">Nama Barang</small>
                     </div>
-                    <div class="col-3">
-                        <select type="text" class="form-control" id="penjualan_id" name="penjualan_id" required>
-                            <option value="">- Semua -</option>
-                            @foreach($penjualan as $item)
-                            <option value="{{ $item->penjualan_id }}">{{ $item->penjualan_kode }}</option>
-                            @endforeach
-                        </select>
-                        <small class="form-text text-muted">Kode penjualan</small>
-                    </div>
                 </div>
             </div>
         </div>
