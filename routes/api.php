@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\LoginController;
 use App\Http\Controllers\Api\LogoutController;
 use App\Http\Controllers\Api\RegisterController;
+use App\Http\Controllers\Api\PenjualanController;
 use App\Http\Controllers\Api\LevelController;
 use App\Http\Controllers\Api\BarangController;
 use App\Http\Controllers\Api\KategoriController;
@@ -23,6 +24,7 @@ use App\Http\Controllers\Api\UserController;
 */
 
 Route::post('/register', RegisterController::class)->name('/register');
+Route::post('/register1', RegisterController::class)->name('register1');
 Route::post('/login', LoginController::class)->name('login');
 Route::post('/logout', LogoutController::class)->name('logout');
 Route::middleware('auth:api')->get('/user', function (Request $request) {
@@ -53,3 +55,8 @@ Route::get('users/{user}', [UserController::class, 'show']);
 Route::put('users/{user}', [UserController::class, 'update']);
 Route::delete('users/{user}', [UserController::class, 'destroy']);
 
+Route::get('penjualans', [PenjualanController::class, 'index']);
+Route::post('penjualans', [PenjualanController::class, 'store']);
+Route::get('penjualans/{penjualan}', [PenjualanController::class, 'show']);
+Route::put('penjualans/{penjualan}', [PenjualanController::class, 'update']);
+Route::delete('penjualans/{penjualan}', [PenjualanController::class, 'destroy']);
